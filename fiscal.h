@@ -53,3 +53,20 @@
        }
        return i;
    }
+
+//Отправить STLV tag
+           Driver.TagNumber = 1084;
+           Driver.FNBeginSTLVTag();
+           int i = Driver.TagID;
+           Driver.TagType = 7; // строка
+           Driver.TagValueStr = "idOrder";// "246515456533";// ;
+           Driver.TagNumber = 1085;   //(наименование дополнительного реквизита пользователя
+        //   Driver.TagValueLength = 8;
+           Driver.FNAddTag();
+           Driver.TagID = i;
+           Driver.TagType = 7; // строка
+           Driver.TagValueStr = "123";// "246515456533";// ;
+           Driver.TagNumber = 1086;   //(значение дополнительного реквизита пользователя
+        //   Driver.TagValueLength = 4;
+           Driver.FNAddTag();
+           Driver.FNSendSTLVTag();
